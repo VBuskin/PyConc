@@ -6,18 +6,18 @@ from io import BytesIO
 from pathlib import Path
 import json
 import gzip
-import subprocess
 
-# Download the spaCy model if not present
-try:
-    nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
-except OSError:
-    with st.spinner("Downloading language model..."):
-        subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
-    nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
+# Initialize spaCy model with error handling
+@st.cache_resource
+def load_spacy_model():
+    try:
+        return spacy.load("en_core_web_sm", disable=["parser", "ner"])
+    except Exception as e:
+        st.error(f"Error loading spaCy model: {str(e)}")
+        st.stop()
 
-# Load spaCy's English model (works for now)
-nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
+# Load the model
+nlp = load_spacy_model()
 
 def load_compressed_index(file):
     """Load the compressed JSON index file."""
