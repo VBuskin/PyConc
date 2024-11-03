@@ -8,7 +8,7 @@ import tempfile
 import os
 import chardet
 
-# Load spaCy's English model
+# Load spaCy's English model (works fine)
 nlp = spacy.load("en_core_web_sm")
 
 def detect_and_read_file(file):
