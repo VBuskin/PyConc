@@ -7,7 +7,7 @@ from pathlib import Path
 import json
 import gzip
 
-# Load spaCy's English model
+# Load spaCy's English model (works for now)
 nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
 
 def load_compressed_index(file):
