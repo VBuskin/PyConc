@@ -6,6 +6,15 @@ from io import BytesIO
 from pathlib import Path
 import json
 import gzip
+import subprocess
+
+# Download the spaCy model if not present
+try:
+    nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
+except OSError:
+    with st.spinner("Downloading language model..."):
+        subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
+    nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
 
 # Load spaCy's English model (works for now)
 nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])
