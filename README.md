@@ -1,4 +1,4 @@
-# PyConC
+# PyConc
 
 This project provides a simple UI for interacting with the NLP library [spaCy](https://github.com/explosion/spaCy) (Honnibal & Montani 2017).
 
