@@ -1,5 +1,7 @@
-pandas
+numpy==1.26.2
+spacy==3.7.4
+pandas==2.2.0
+streamlit==1.40.2
+en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
 openpyxl
-spacy==3.7.5
-en-core-web-sm @ <https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl>
 xlsxwriter
